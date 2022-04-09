@@ -1,63 +1,62 @@
-
-//Elements 
-var password = document.querySelector("#password");
+// Assignment Code
 var generateBtn = document.querySelector("#generate");
-var lowercaseChar = "abcdefghijklmnopqrstuvwxyz";
-var uppercaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var numberChar = "0123456789";
-var specialChar = "!@#$%^&*()_-+={}[];:'`~<,>.?/|"
-let everyCharacter = "";
+var numbers = "0123456789";
+var lowerCases = "abcdefghijklmnopqrstuvwxyz";
+var upperCases = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var special = "!@#$%^&*()_-+={}[];:'`~<,>.?/|";
 
 
-//This is the mess I am creating lol
-
-function generatePassword () {
-    let passwordLength = prompt("Choose how many characters long you'd like your password to be (between 8-128 characters): ");
-    if (passwordLength<8){
-       alert("Password length must be a number between 8-128 characters");
-      determineLength();
-    }else if (passwordLength>128){
-      alert("Password length must be a number between 8-128 characters");
-      determineLength();
-    }else if (isNaN(passwordLength)){
-      alert("Password length must be a number between 8-128 characters");
-      determineLength();
-    }else{
-    alert("The next three screens will ask you what types of characters you would like to be included in your password.\nIf you choose 'No' for all, your password will only contain lowercase letters.");
+//Determine the lenght of the password and characters included
+function generatePassword() {
+  console.log("Button Clicked!") // Confirmation button was clicked
+  var results = "";
+  var numberOfCharacters = window.prompt("How many characters would you like your password to contain");
+  var characterQuantity = parseInt(numberOfCharacters);
+  if (characterQuantity >= 8 && characterQuantity <= 128) {
+    var okayButton = [];
+    while (true) {
+      if (window.confirm("Click OK to confirm lowercase letter.")) {
+        okayButton.push(lowerCases);
+      }
+      if (window.confirm("Click OK to confirm Uppercase letter.")) {
+        okayButton.push(upperCases);
+      }
+      if (window.confirm("Click OK to confirm Numbers values")) {
+        okayButton.push(numbers);
+      }
+      if (window.confirm("Click OK to confirm Special characters")) {
+        okayButton.push(special);
+      }
+      if (okayButton.length > 0) {
+        break;
+      }
+      alert("You need to confirm at least one kind of character, try again.");
     }
+    for (var i = 0; i < characterQuantity; i++) {
+      var storeButton = Math.floor(Math.random() * okayButton.length);
+      var selectedArray = okayButton[storeButton];
+       results += selectedArray[Math.floor(Math.random() * selectedArray.length)]; 
 
-// This is to make sure to guide the customer properly to get a close to efficient password.
-    if (
-      askLowerCase === false &&
-      askUpperCase === false &&
-      askNumeric === false &&
-      askSpecialCharacters === false
-    ) {
-      alert("Please select at least one character type.");
-      generatePassword();
-    }
-  }
-  let password = "";
+}}};
 
-  for (let i = 0; i < passwordLength; i++) {
-    password += everyCharacter.charAt(
-      Math.floor(Math.random() * everyCharacter.length)
-    );
-  }
-}
 
 // Write password to the #password input
-function writePassword() {
-  let password = generatePassword();
-  let passwordText = document.querySelector("#password");
+function writePassword () {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
+    if (!password) {
+    return
+  }
 
-//Adding event listent that will "listen" to the click and then shoot and email to the people upstairs.
-generateBtn.addEventListener("click", writePassword)
+  if (password) {
+    passwordText.textContent = password;
+  }
+};
 
-
-
+// Add event listener to generate button
+generateBtn.addEventListener("click",writePassword);
 
 
