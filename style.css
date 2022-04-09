@@ -21,6 +21,7 @@ body {
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
+
 }
 
 header {
@@ -28,6 +29,7 @@ header {
   padding: 20px;
   padding-top: 0px;
   color: hsl(206, 17%, 28%);
+
 }
 
 .card {
@@ -40,6 +42,9 @@ header {
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+  border: black;
+  border-radius: 5vh;
+  margin-top: 15vh;
 }
 
 .card-header::after {
