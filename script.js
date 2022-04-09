@@ -1,4 +1,5 @@
 // Assignment Code
+//Variables for the password generation
 var generateBtn = document.querySelector("#generate");
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var lowerCases = [
@@ -88,6 +89,10 @@ function generatePassword() {
   console.log(options);
 var allPossibleCharacters = [];
 var password = "";
+  if (options.length < 8 || options.length > 28) {
+    alert("Follow the rules please. Do not make me call your mom.\n Choose betewwen 8-28 characters");
+    collectUserInput();
+  }
 
   if (options.lowercase) {
     allPossibleCharacters = allPossibleCharacters.concat(lowerCases);
@@ -116,9 +121,9 @@ function collectUserInput() {
     "How many characters would you like your password to contain?"
   );
   var characterQuantity = parseInt(numberOfCharacters);
-  if (Number.isNaN(characterQuantity)) {
+  if (isNaN(characterQuantity)) {
     //if they put text instead of a number
-    alert("You did it wrong, put a number!!!");
+    alert("You need to enter a number.🤦 Try again!");
     collectUserInput();
   }
   if (characterQuantity >= 8 || characterQuantity <= 128) {
@@ -129,11 +134,8 @@ function collectUserInput() {
     var useNumbers = window.confirm("Click OK to confirm Numbers values");
 
     var useSpecial = window.confirm("Click OK to confirm Special characters");
+  } 
 
-  } else {
-    alert("You did it wrong!!!"); // if they picked a wrong number
-    collectUserInput();
-  }
 
   console.log("Questions answered");
   return {
@@ -152,14 +154,14 @@ function writePassword() {
   passwordText.value = passwords;
 
   setTimeout(function () {
-    passwordText.value = "For your safety, your passwor 🔒 was delete";
+    passwordText.value = "For your safety, your password 🔒 was delete";
     setTimeout(function () {
       passwordText.value = "Thanks for your patronage!🤗 ";
       setTimeout(function () {
-        passwordText.value = " ";
-      },1500)
+        passwordText.value = "Create a unique password!";
+      },1000)
     },3000)
-  },10000)
+  },8500)
 }
 
 // Add event listener to generate button
