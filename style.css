@@ -42,7 +42,7 @@ header {
     transform: translateY(0);
   }
   to {
-    transform: translatey(500px);
+    transform: translatey(70px);
   }
 }
 
@@ -94,7 +94,7 @@ header {
 
 .btn {
   border: none;
-  background-color: rgb(94, 8, 175);
+  background-color: #ff5722;
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
@@ -105,6 +105,7 @@ header {
   margin: 16px 16px 16px 20px;
   padding: 14px 34px;
   text-align: center;
+  overflow: hidden;
   cursor: pointer;
   animation: color_and_scale;
   animation-duration: 1s;
@@ -112,13 +113,39 @@ header {
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
 }
+
+button.btn:hover {
+  background:#ff9776;
+  color:#2f3c4f;
+  transform: translate(0, 0.375em);
+}
+
+button.btn:hover::before {
+  transform: translate3d(0, 0.75em, -1em);
+}
+
+button.btn:active {
+  transform: translate(0em, 0.75em);
+}
+
+button.btn:active::before {
+  transform: translate3d(0, 0, -1em);
+
+  box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.25em 0 0 #fbb040);
+}
+
 @keyframes color_and_scale {
   0% {
-    background-color: aqua;
+    background-color: #e7b3b3;
     transform: scale(0.5);
+    color:#3f3b3b;
+  }
+  50% {
+    background-color: rgb(128, 21, 0);
+    transform: scale(1);
   }
   100% {
-    background-color: purple;
+    background-color: #de703c;
     transform: scale(1.5);
   }
 }

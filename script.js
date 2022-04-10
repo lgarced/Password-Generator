@@ -89,10 +89,6 @@ function generatePassword() {
   console.log(options);
 var allPossibleCharacters = [];
 var password = "";
-  if (options.length < 8 || options.length > 128) {
-    alert("Follow the rules please. Do not make me call your mom.\n Choose betewwen 8-128 characters");
-    collectUserInput();
-  }
 
   if (options.lowercase) {
     allPossibleCharacters = allPossibleCharacters.concat(lowerCases);
@@ -124,9 +120,8 @@ function collectUserInput() {
   if (isNaN(characterQuantity)) {
     //if they put text instead of a number
     alert("You need to enter a number.🤦 Try again!");
-    collectUserInput();
-  }
-  if (characterQuantity >= 8 || characterQuantity <= 128) {
+  };
+  if (characterQuantity >= 8 && characterQuantity <= 128) {
     var useLowercase = window.confirm("Click OK to confirm lowercase letter.");
 
     var useUppercaser = window.confirm("Click OK to confirm Uppercase letter.");
@@ -134,8 +129,7 @@ function collectUserInput() {
     var useNumbers = window.confirm("Click OK to confirm Numbers values");
 
     var useSpecial = window.confirm("Click OK to confirm Special characters");
-  } 
-
+  };
 
   console.log("Questions answered");
   //Inputs stored
@@ -157,11 +151,11 @@ function writePassword() {
   setTimeout(function () {
     passwordText.value = "For your safety, your password 🔒 was delete";
     setTimeout(function () {
-      passwordText.value = "Thanks for your patronage!🤗 ";
+      passwordText.value = "Thanks for using the Password Generator!🤗 ";
       setTimeout(function () {
-        passwordText.value = "Create a unique password!";
+        passwordText.value = "Need another one?";
       },1000)
-    },3000)
+    },3500)
   },8500)
 }
 
