@@ -4,5 +4,14 @@ Password Generator is a basic password generator that creates a password in the 
 There are four options, uppercase and lowercase letters, numerics, and special symbols. 
 Generator will try to prevent user error and return the user to the first question if user does not choose from the choices correctly. 
 
+<<<<<<< HEAD
  https://lgarced.github.io/Password-Generator/
 
+=======
+
+ https://lgarced.github.io/Password-Generator/
+
+
+
+<img width="1220" alt="PasswordGenerator" src="https://user-images.githubusercontent.com/93692943/162598759-cfddd67f-542e-4dc7-8397-42447a2d880f.png">
+>>>>>>> d15dd8e7153541c6c88a23d795005c4189597d3c
