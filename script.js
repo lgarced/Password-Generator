@@ -82,15 +82,15 @@ var special = [
   "_",
 ];
 
-//Determine the lenght of the password and characters included. It will ask end user the following questions to determined what lenghts and values will the password have.
+//User imput is exported from the object and compared to create a unique password and stored on the generatePassword Function
 function generatePassword() {
   console.log("Button Clicked!"); // Confirmation button was clicked
   var options = collectUserInput();
   console.log(options);
 var allPossibleCharacters = [];
 var password = "";
-  if (options.length < 8 || options.length > 28) {
-    alert("Follow the rules please. Do not make me call your mom.\n Choose betewwen 8-28 characters");
+  if (options.length < 8 || options.length > 128) {
+    alert("Follow the rules please. Do not make me call your mom.\n Choose betewwen 8-128 characters");
     collectUserInput();
   }
 
@@ -114,7 +114,7 @@ var password = "";
   }
   return password;
 }
-
+//Function collects user input and store in the object down. 
 function collectUserInput() {
   var results = "";
   var numberOfCharacters = window.prompt(
@@ -138,6 +138,7 @@ function collectUserInput() {
 
 
   console.log("Questions answered");
+  //Inputs stored
   return {
     length: numberOfCharacters,
     lowercase: useLowercase,
