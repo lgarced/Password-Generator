@@ -1,2 +1,7 @@
 # Password-Generator
-Homework for UCI bootcamp. 
+
+Password Generator is a basic password generator that creates a password in the range of 8 to 128. Generator will create a password with the values that the user chooses. 
+There are four options, uppercase and lowercase letters, numerics, and special symbols. 
+Generator will try to prevent user error and return the user to the first question if user does not choose from the choices correctly. 
+
+
